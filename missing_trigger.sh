@@ -11,7 +11,7 @@ function add_files
 {
 	while IFS= read -r line ;
 	do
-		printf '%s\n' "$line" > temp.txt
+		printf '%s\n' "$line" > $base/temp.txt
 		echo > $line/delivery.complete
 	done < "$base/UMGI-EMI_missing_trigger.txt"
 }
