@@ -4,7 +4,7 @@ cd /ng_edrop_a/umgi/incoming
 umask 0002
 function find_problems
 {
-	find -mindepth 2 -maxdepth 2 -type d | while read -r D; do test -z "$(shopt -s nullglob; printf "%s\n" "$D"/*.complete)" && printf "%s\n" "$D"; done > "$base/UMGI-EMI_missing_trigger.txt"
+	find -mindepth 2 -maxdepth 2 -mtime +2 -type d | while read -r D; do test -z "$(shopt -s nullglob; printf "%s\n" "$D"/*.complete)" && printf "%s\n" "$D"; done > "$base/UMGI-EMI_missing_trigger.txt"
 }
 
 function add_files
